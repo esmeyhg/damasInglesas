@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@recursos/EstiloDamas.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logica.AyudaGUIController">
+   <children>
+      <Label layoutX="243.0" layoutY="38.0" text="%lbl.reglas" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="54.0" layoutY="88.0" prefHeight="225.0" prefWidth="492.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="%tab.reg">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="8.0" layoutY="14.0" text="%lbl.textReg" />
+                        <Label layoutX="8.0" layoutY="31.0" text="%lbl.textReg2" />
+                        <Label layoutX="8.0" layoutY="48.0" text="%lbl.textReg3" />
+                        <Label layoutX="8.0" layoutY="64.0" text="%lbl.textReg4" />
+                        <Label layoutX="8.0" layoutY="81.0" text="%lbl.textReg5" />
+                        <Label layoutX="8.0" layoutY="98.0" text="%lbl.textReg6" />
+                        <Label layoutX="8.0" layoutY="114.0" text="%lbl.textReg7" />
+                        <Label layoutX="8.0" layoutY="131.0" text="%lbl.textReg8" />
+                        <Label layoutX="8.0" layoutY="148.0" text="%lbl.textReg9" />
+                        <Label layoutX="8.0" layoutY="165.0" text="%lbl.textReg10" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="%tab.objetivo">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="27.0" text="%lbl.textObj1" />
+                        <Label layoutX="14.0" layoutY="71.0" text="%lbl.textObj2" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="255.0" layoutY="342.0" mnemonicParsing="false" text="%btn.regresar" />
+   </children>
+</AnchorPane>
