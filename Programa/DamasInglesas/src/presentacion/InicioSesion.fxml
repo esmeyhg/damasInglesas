@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logica.InicioSesionController">
-    
+<AnchorPane id="AnchorPane" prefHeight="439.0" prefWidth="450.0" styleClass="background" stylesheets="@recursos/FondoBlanco.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.InicioSesionController">
+   <children>
+      <ImageView fitHeight="182.0" fitWidth="271.0" layoutX="90.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recursos/logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="usuarioLB" alignment="CENTER_RIGHT" layoutX="38.0" layoutY="245.0" text="%lbl.usuario">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="passLB" alignment="CENTER_RIGHT" layoutX="38.0" layoutY="299.0" text="%lbl.pass">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usuarioTF" layoutX="154.0" layoutY="246.0" prefHeight="25.0" prefWidth="218.0" promptText="%tf.usuario" />
+      <Button fx:id="ingresarBT" layoutX="172.0" layoutY="354.0" mnemonicParsing="false" onAction="#eventoBotonIniciarSesion" text="%btn.ingresar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Hyperlink fx:id="registrarLink" layoutX="173.0" layoutY="384.0" onAction="#eventoLinkRegistrase" text="%link.registrarse">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Hyperlink>
+      <PasswordField fx:id="contrasenaPF" layoutX="154.0" layoutY="300.0" prefHeight="25.0" prefWidth="218.0" promptText="%tf.password" />
+   </children>
 </AnchorPane>

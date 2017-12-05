@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="541.0" prefWidth="773.0" styleClass="background" stylesheets="@recursos/EstiloDamas.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logica.TableroController">
-   <children>
-      <MenuBar fx:id="menu" layoutY="2.0" prefHeight="25.0" prefWidth="773.0">
-        <menus>
-          <Menu fx:id="archivo" mnemonicParsing="false" text="%menu.archivo">
-            <items>
-              <MenuItem fx:id="partida" mnemonicParsing="false" text="%item.partidanueva" />
-                  <MenuItem fx:id="pausar" mnemonicParsing="false" text="%item.pausar" />
-                  <MenuItem fx:id="salir" mnemonicParsing="false" text="%item.salir" />
-            </items>
-          </Menu>
-          <Menu fx:id="ayuda" mnemonicParsing="false" text="%menu.ayuda">
-              <items>
-                  <MenuItem fx:id="reglaAyuda" mnemonicParsing="false" text="%item.reglaAyuda" />  
-              </items>
-          </Menu>
-        </menus>
+<BorderPane prefHeight="526.0" prefWidth="766.0" styleClass="background" stylesheets="@recursos/EstiloDamas.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.TableroController">
+   <top>
+      <MenuBar fx:id="menu1" prefHeight="25.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu fx:id="archivo1" mnemonicParsing="false" text="%menu.archivo">
+               <items>
+                  <MenuItem fx:id="partida1" mnemonicParsing="false" text="%item.partidanueva" />
+                  <MenuItem fx:id="pausar1" mnemonicParsing="false" text="%item.pausar" />
+                  <MenuItem fx:id="salir1" mnemonicParsing="false" onAction="#salir" text="%item.salir" />
+               </items>
+            </Menu>
+            <Menu fx:id="ayuda1" mnemonicParsing="false" text="%menu.ayuda">
+               <items>
+                  <MenuItem fx:id="reglaAyuda1" mnemonicParsing="false" onAction="#abrirReglas" text="%item.reglaAyuda" />
+               </items>
+            </Menu>
+         </menus>
       </MenuBar>
-      <ProgressIndicator layoutX="577.0" layoutY="38.0" prefHeight="164.0" prefWidth="182.0" progress="0.27" />
-      <ImageView fitHeight="451.0" fitWidth="445.0" layoutX="103.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@recursos/tablero.jpg" />
-         </image>
-      </ImageView>
-      <Label fx:id="turnoLB" layoutX="14.0" layoutY="281.0" text="%lbl.turno" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="jugadores" layoutX="610.0" layoutY="268.0" text="%lbl.jugadores" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="jugadorUnoLB" layoutX="566.0" layoutY="318.0" text="%lbl.jugadoruno" textFill="WHITE" />
-      <Label fx:id="jugadorDosLB" layoutX="566.0" layoutY="358.0" text="%lbl.jugadordos" textFill="WHITE" />
-      <TextField fx:id="jugadorUnoTF" layoutX="661.0" layoutY="314.0" prefHeight="25.0" prefWidth="98.0" />
-      <TextField fx:id="jugadorDosTF" layoutX="661.0" layoutY="354.0" prefHeight="25.0" prefWidth="98.0" />
-      <Circle fx:id="fichaUnoR" fill="#ff1f1f" layoutX="129.0" layoutY="74.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaCincoR" fill="#ff1f1f" layoutX="186.0" layoutY="131.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaNueveR" fill="#ff1f1f" layoutX="131.0" layoutY="186.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaDiezR" fill="#ff1f1f" layoutX="241.0" layoutY="186.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaDosR" fill="#ff1f1f" layoutX="242.0" layoutY="75.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaOnceR" fill="#ff1f1f" layoutX="353.0" layoutY="186.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaDoceR" fill="#ff1f1f" layoutX="465.0" layoutY="186.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaSeisR" fill="#ff1f1f" layoutX="298.0" layoutY="131.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaSieteR" fill="#ff1f1f" layoutX="409.0" layoutY="130.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaTresR" fill="#ff1f1f" layoutX="352.0" layoutY="74.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaCuatroR" fill="#ff1f1f" layoutX="464.0" layoutY="74.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaOchoR" fill="#ff1f1f" layoutX="522.0" layoutY="130.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaOchoB" fill="WHITE" layoutX="130.0" layoutY="409.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaCuatroB" fill="WHITE" layoutX="186.0" layoutY="464.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaDoceB" fill="WHITE" layoutX="186.0" layoutY="353.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaOnceB" fill="WHITE" layoutX="298.0" layoutY="353.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaSienteB" fill="WHITE" layoutX="242.0" layoutY="409.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaTresB" fill="WHITE" layoutX="298.0" layoutY="465.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaSesisB" fill="WHITE" layoutX="353.0" layoutY="409.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaDiezB" fill="WHITE" layoutX="409.0" layoutY="353.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaDosB" fill="WHITE" layoutX="409.0" layoutY="464.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaCincoB" fill="WHITE" layoutX="465.0" layoutY="409.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaNueveB" fill="WHITE" layoutX="520.0" layoutY="353.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaUnoB" fill="WHITE" layoutX="521.0" layoutY="465.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="fichaTurno" fill="#ff1f1f" layoutX="46.0" layoutY="335.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-   </children>
-</AnchorPane>
+   </top>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="9.0" layoutY="269.0" text="%lbl.jugadoruno" textFill="WHITE" />
+            <Label layoutX="10.0" layoutY="318.0" text="%lbl.jugadordos" textFill="WHITE" />
+            <TextField fx:id="jugador1"  layoutX="98.0" layoutY="265.0" prefHeight="25.0" prefWidth="91.0" />
+            <TextField fx:id="jugador2" layoutX="98.0" layoutY="314.0" prefHeight="25.0" prefWidth="92.0" />
+            <ProgressIndicator layoutX="22.0" layoutY="14.0" prefHeight="140.0" prefWidth="156.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ProgressIndicator>
+            <Label layoutX="61.0" layoutY="234.0" text="%lbl.jugadores" textFill="WHITE">
+               <font>
+                  <Font name="Broadway" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="529.0" prefWidth="81.0" BorderPane.alignment="CENTER">
+         <children>
+            <Circle fill="RED" layoutX="43.0" layoutY="265.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="7.0" layoutY="211.0" text="%lbl.turno" textFill="WHITE">
+               <font>
+                  <Font name="Broadway" size="12.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane fx:id="tablero" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <Button fx:id="enviarPrueba" mnemonicParsing="false" text="Enviar" BorderPane.alignment="CENTER" onAction="#eventoBotonEnviar" />
+   </bottom>
+</BorderPane>

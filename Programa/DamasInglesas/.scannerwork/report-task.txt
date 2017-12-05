@@ -1,0 +1,6 @@
+projectKey=pr:testDamas
+serverUrl=http://localhost:9000
+serverVersion=6.7.0.33306
+dashboardUrl=http://localhost:9000/dashboard/index/pr:testDamas
+ceTaskId=AV_iC1pakSNsaNBF2BOY
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AV_iC1pakSNsaNBF2BOY

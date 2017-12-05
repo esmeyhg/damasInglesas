@@ -1,0 +1,22 @@
+/* 
+    Created on : 24/09/2017, 08:39:34 PM
+    Author     : yamii
+*/
+
+.background {
+    -fx-background-image: url(/presentacion/recursos/fondo.jpg);
+}
+
+#pane1,#pane2,#pane3,#pane4,#pane5,#pane6,#pane7,#pane8,#pane9,#pane10,
+#pane11,#pane12,#pane13,#pane14,#pane15,#pane16,#pane17,#pane18,#pane19,#pane20,
+#pane21,#pane22,#pane23,#pane24,#pane25,#pane26,#pane27,#pane28,#pane29,#pane30,
+#pane31,#pane32{
+    -fx-background-color:black;
+}
+
+#pane{
+    -fx-background-color:white;
+    -fx-border-color:black;
+}
+
+
