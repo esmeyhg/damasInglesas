@@ -39,25 +39,11 @@ public class TableroController implements Initializable {
     public void conectarServidor () throws URISyntaxException{
         //socket = IO.socket("http://192.168.43.239:7000");
         socket = IO.socket("http://localhost:7000");
-        socket.on(Socket.EVENT_CONNECT, new Emitter.Listener(){
-            @Override
-            public void call(Object... os){
-                System.out.println("Conectado con el servidor");
-            }
-        }).on("avisoConectado", new Emitter.Listener() {
+        socket.on("nombreUsuarioCliente", new Emitter.Listener() {
             @Override
             public void call(Object... os) {
                 String respuesta = (String) (os[0]);
                 System.out.println(respuesta);
-            }
-        }).on("nombreUsuarioCliente", new Emitter.Listener(){
-            @Override
-            public void call(Object... os){
-                Platform.runLater(()->{
-                    String respuestaServidor = (String) (os[0]);
-                    System.out.println(respuestaServidor);
-                    //jugador1.setText(respuestaServidor + "\n");
-                });
             }
         });
         socket.connect();   
