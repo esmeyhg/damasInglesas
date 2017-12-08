@@ -49,7 +49,7 @@
                   <Font name="Broadway" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="etiquetaTiempo" layoutX="33.0" layoutY="39.0" prefHeight="53.0" prefWidth="153.0" textFill="WHITE">
+            <Label fx:id="etiquetaTiempo" layoutX="33.0" layoutY="39.0" prefHeight="53.0" prefWidth="153.0" text=" 00:00:00" textFill="WHITE">
                <font>
                   <Font name="Niagara Engraved" size="64.0" />
                </font>
