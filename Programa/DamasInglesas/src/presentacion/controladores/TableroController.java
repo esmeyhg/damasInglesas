@@ -31,24 +31,12 @@ public class TableroController implements Initializable {
     ResourceBundle resource = ResourceBundle.getBundle("lenguajes.idioma");
 
     Socket socket;
-    
     @FXML private TextField jugador1;
     @FXML private TextField jugador2;
     @FXML private Label etiquetaTiempo;
     @FXML private MenuItem pausar;
     
-    @FXML
-    private void eventoBotonEnviar(ActionEvent event) {
-        enviarMensaje();
-    }
-    
-    public void enviarMensaje(){
-        String nombreUsuario = "Esmeralda_hg";
-        socket.emit("saludoServidor", nombreUsuario);
-    }
-    
     public void conectarServidor () throws URISyntaxException{
-        
         //socket = IO.socket("http://192.168.43.239:7000");
         socket = IO.socket("http://localhost:7000");
         socket.on(Socket.EVENT_CONNECT, new Emitter.Listener(){
@@ -62,31 +50,26 @@ public class TableroController implements Initializable {
                 String respuesta = (String) (os[0]);
                 System.out.println(respuesta);
             }
-        }).on("saludoCliente", new Emitter.Listener(){
+        }).on("nombreUsuarioCliente", new Emitter.Listener(){
             @Override
             public void call(Object... os){
                 Platform.runLater(()->{
                     String respuestaServidor = (String) (os[0]);
-                    jugador2.appendText(respuestaServidor + "\n");
-                });
-            }
-        }).on ("saludoUsuario", new Emitter.Listener(){
-            @Override
-            public void call(Object... os){
-                Platform.runLater(()->{
-                    String respuestaServidor = (String) (os[0]);
-                    jugador1.appendText(respuestaServidor + "\n");
+                    System.out.println(respuestaServidor);
+                    //jugador1.setText(respuestaServidor + "\n");
                 });
             }
         });
         socket.connect();   
     }
+
     
     /**
      * Método que cierra el juego
      */
     @FXML
     private void salir(){
+      socket.emit("desconectado", "Usuario desconectado");
       System.exit(0);
     }
     
@@ -109,12 +92,10 @@ public class TableroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       this.resource = rb;
-      
-        try {
-            conectarServidor();
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(TableroController.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-      
+      try {
+        conectarServidor();
+      } catch (URISyntaxException ex) {
+        Logger.getLogger(TableroController.class.getName()).log(Level.SEVERE, null, ex);
+      }  
     }
 }

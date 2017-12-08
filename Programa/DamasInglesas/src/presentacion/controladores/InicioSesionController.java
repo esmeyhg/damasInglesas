@@ -1,6 +1,10 @@
 package presentacion.controladores;
 
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -33,18 +37,13 @@ public class InicioSesionController implements Initializable {
 
     Parent root;
     Stage stage;
+    Socket socket;
 
-    @FXML
-    public TextField usuarioTF;
-
-    @FXML
-    private PasswordField contrasenaPF;
-
-    @FXML
-    private Hyperlink registrarLink;
-
-    @FXML
-    private Button ingresarBT;
+    @FXML private TextField usuarioTF;
+    @FXML private PasswordField contrasenaPF;
+    @FXML private Hyperlink registrarLink;
+    @FXML private Button ingresarBT;
+    
     ResourceBundle resource = ResourceBundle.getBundle("lenguajes.idioma");
 
     /**
@@ -58,36 +57,41 @@ public class InicioSesionController implements Initializable {
      */
     @FXML
     public void permitirAcceso(ActionEvent event) throws
-            NoSuchAlgorithmException, RemoteException, NotBoundException {
-        if (validarCampos()) {
-            logica.Cuenta cuenta = crearObjetoCuenta();
-            int estadoCuenta = validarCuentaEnServidor(cuenta);
-            switch (estadoCuenta) {
-                case 0:
-                    mensajeSinServidor();
-                    break;
-                case 1:
-                    if (event.getSource() == ingresarBT) {
-                        try {
-                            stage = new Stage();
-                            root = FXMLLoader.load(getClass().getResource("/presentacion/Inicial.fxml"), resource);
-                            stage.setScene(new Scene(root));
-                            stage.setTitle("Inicial");
-                            stage.show();
-                        } catch (IOException ex) {
-                            Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    stage = (Stage) ingresarBT.getScene().getWindow();
-                    stage.close();
-                    break;
-                case 2:
-                    mensajeContrasenaIncorrecta();
-                    break;
+        NoSuchAlgorithmException, RemoteException, NotBoundException {
+      if (validarCampos()) {
+        logica.Cuenta cuenta = crearObjetoCuenta();
+        int estadoCuenta = validarCuentaEnServidor(cuenta);
+        switch (estadoCuenta) {
+          case 0:
+            mensajeSinServidor();
+            break;     
+          case 1:
+            if (event.getSource() == ingresarBT) {
+              try {
+                conectarServidor();
+                enviarNombreUsuario();
+                stage = new Stage();
+                root = FXMLLoader.load(getClass()
+                    .getResource("/presentacion/Inicial.fxml"), resource);
+                stage.setScene(new Scene(root));
+                stage.setTitle("Inicial");
+                stage.show();
+              } catch (IOException ex) {
+                Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
+              } catch (URISyntaxException ex) {
+                Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
+              }        
             }
-        } else {
-            mensajeCamposVacios();
+            stage = (Stage) ingresarBT.getScene().getWindow();
+            stage.close();
+            break;
+          case 2:
+            mensajeContrasenaIncorrecta();
+            break;
         }
+      } else {
+        mensajeCamposVacios();
+      }
     }
 
     /**
@@ -96,9 +100,8 @@ public class InicioSesionController implements Initializable {
      * @return true o false si estan vacios o no
      */
     public boolean validarCampos() {
-        boolean llenos = false;
-        if (usuarioTF.getText().length() > 0 && contrasenaPF.getText().
-                length() > 0) {
+      boolean llenos = false;
+        if (usuarioTF.getText().length() > 0 && contrasenaPF.getText().length() > 0) {
             llenos = true;
         }
         return llenos;
@@ -237,7 +240,32 @@ public class InicioSesionController implements Initializable {
     @FXML
     private void eventoBotonIniciarSesion(ActionEvent event)
             throws RemoteException, NotBoundException, NoSuchAlgorithmException {
-        permitirAcceso(event);
+      permitirAcceso(event);
+    }
+    
+    /**
+     * Envía el nombre del usuario conectado al servidor
+     */
+    public void enviarNombreUsuario(){
+      String nombreUsuario = usuarioTF.getText();
+      socket.emit("nombreUsuarioServidor", nombreUsuario);
+    }
+    
+    /**
+     * Conecta con el servidor Server.js a traves del puerto
+     * 7000 y la red 192.168.43.239
+     * @throws URISyntaxException 
+     */
+    public void conectarServidor () throws URISyntaxException{
+        //socket = IO.socket("http://192.168.43.239:7000");
+        socket = IO.socket("http://localhost:7000");
+        socket.on(Socket.EVENT_CONNECT, new Emitter.Listener(){
+            @Override
+            public void call(Object... os){
+                System.out.println("Conectado con el servidor");
+            }
+        });
+        socket.connect();   
     }
 
     @Override
