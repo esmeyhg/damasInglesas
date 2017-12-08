@@ -64,7 +64,7 @@ public class InicioSesionController implements Initializable {
             int estadoCuenta = validarCuentaEnServidor(cuenta);
             switch (estadoCuenta) {
                 case 0:
-                    mensajeUsuarioNoExiste();
+                    mensajeSinServidor();
                     break;
                 case 1:
                     if (event.getSource() == ingresarBT) {
@@ -102,6 +102,17 @@ public class InicioSesionController implements Initializable {
             llenos = true;
         }
         return llenos;
+    }
+    
+    /**
+     * Muestra un mensaje de que no se encuentra conectado con el servidor
+     */
+    public void mensajeSinServidor () {
+      Alert alert = new Alert(Alert.AlertType.WARNING);
+      alert.setTitle(resource.getString("tituloAviso"));
+      alert.setHeaderText(null);
+      alert.setContentText(resource.getString("mensajeSinServidor"));
+      alert.showAndWait();
     }
 
     /**
@@ -198,7 +209,7 @@ public class InicioSesionController implements Initializable {
      * @param event
      */
     @FXML
-    private void eventoLinkRegistrase(ActionEvent event) throws
+    private void eventoLinkRegistrarse(ActionEvent event) throws
             NotBoundException, NoSuchAlgorithmException {
         if (event.getSource() == registrarLink) {
             try {

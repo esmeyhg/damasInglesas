@@ -33,16 +33,12 @@
          </font>
       </Label>
       <TextField fx:id="usuarioTF" layoutX="154.0" layoutY="246.0" prefHeight="25.0" prefWidth="218.0" promptText="%tf.usuario" />
-      <Button fx:id="ingresarBT" layoutX="172.0" layoutY="354.0" mnemonicParsing="false" onAction="#eventoBotonIniciarSesion" text="%btn.ingresar">
+      <PasswordField fx:id="contrasenaPF" layoutX="154.0" layoutY="300.0" prefHeight="25.0" prefWidth="218.0" promptText="%tf.password" />
+      <Button fx:id="ingresarBT" layoutX="158.0" layoutY="345.0" mnemonicParsing="false" text="%btn.ingresar" onAction="#permitirAcceso">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="registrarLink" layoutX="173.0" layoutY="384.0" onAction="#eventoLinkRegistrase" text="%link.registrarse">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Hyperlink>
-      <PasswordField fx:id="contrasenaPF" layoutX="154.0" layoutY="300.0" prefHeight="25.0" prefWidth="218.0" promptText="%tf.password" />
+      <Hyperlink fx:id="registrarLink" layoutX="178.0" layoutY="392.0" text="%link.registrarse" onAction="#eventoLinkRegistrarse" />
    </children>
 </AnchorPane>

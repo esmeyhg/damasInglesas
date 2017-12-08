@@ -42,16 +42,16 @@
          <children>
             <Label layoutX="9.0" layoutY="269.0" text="%lbl.jugadoruno" textFill="WHITE" />
             <Label layoutX="10.0" layoutY="318.0" text="%lbl.jugadordos" textFill="WHITE" />
-            <TextField fx:id="jugador1"  layoutX="98.0" layoutY="265.0" prefHeight="25.0" prefWidth="91.0" />
+            <TextField fx:id="jugador1" layoutX="98.0" layoutY="265.0" prefHeight="25.0" prefWidth="91.0" />
             <TextField fx:id="jugador2" layoutX="98.0" layoutY="314.0" prefHeight="25.0" prefWidth="92.0" />
-            <ProgressIndicator layoutX="22.0" layoutY="14.0" prefHeight="140.0" prefWidth="156.0">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </ProgressIndicator>
             <Label layoutX="61.0" layoutY="234.0" text="%lbl.jugadores" textFill="WHITE">
                <font>
                   <Font name="Broadway" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="etiquetaTiempo" layoutX="33.0" layoutY="39.0" prefHeight="53.0" prefWidth="153.0" textFill="WHITE">
+               <font>
+                  <Font name="Niagara Engraved" size="64.0" />
                </font>
             </Label>
          </children>
@@ -72,6 +72,6 @@
       <AnchorPane fx:id="tablero" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <Button fx:id="enviarPrueba" mnemonicParsing="false" text="Enviar" BorderPane.alignment="CENTER" onAction="#eventoBotonEnviar" />
+      <Button fx:id="enviarPrueba" mnemonicParsing="false" onAction="#eventoBotonEnviar" text="Enviar" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

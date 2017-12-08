@@ -3,6 +3,7 @@ package presentacion.controladores;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
+import java.awt.MenuItem;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -16,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -30,10 +32,10 @@ public class TableroController implements Initializable {
 
     Socket socket;
     
-    @FXML
-    private TextField jugador1;
-    
-    @FXML TextField jugador2;
+    @FXML private TextField jugador1;
+    @FXML private TextField jugador2;
+    @FXML private Label etiquetaTiempo;
+    @FXML private MenuItem pausar;
     
     @FXML
     private void eventoBotonEnviar(ActionEvent event) {
@@ -107,6 +109,7 @@ public class TableroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       this.resource = rb;
+      
         try {
             conectarServidor();
         } catch (URISyntaxException ex) {
