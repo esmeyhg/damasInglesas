@@ -58,6 +58,8 @@ public class TableroController implements Initializable {
     }
     
     public void habilitarTablero (MenuItem boton, int casilla, String x, String y) {
+      fila = Integer.parseInt(y);
+      columna = Integer.parseInt(x);
       
     }
 
