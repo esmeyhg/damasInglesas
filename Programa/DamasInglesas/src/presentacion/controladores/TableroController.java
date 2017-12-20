@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +34,8 @@ public class TableroController implements Initializable {
     @FXML private TextField jugador2;
     @FXML private Label etiquetaTiempo;
     @FXML private MenuItem pausar;
+    @FXML private MenuItem iniciar;
+    private int columna, fila;
     
     public void conectarServidor () throws URISyntaxException{
         //socket = IO.socket("http://192.168.43.239:7000");
@@ -47,6 +48,17 @@ public class TableroController implements Initializable {
             }
         });
         socket.connect();   
+    }
+    
+    @FXML
+    public void iniciarPartida (ActionEvent event) {
+      String ejeX = "0";
+      String ejeY = "0";
+      habilitarTablero(iniciar, 1, ejeX, ejeY);
+    }
+    
+    public void habilitarTablero (MenuItem boton, int casilla, String x, String y) {
+      
     }
 
     
