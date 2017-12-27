@@ -18,14 +18,12 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="510.0" prefWidth="766.0" styleClass="background" stylesheets="@recursos/EstiloDamas.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.TableroController">
+<BorderPane fx:id="modulosTablero" prefHeight="510.0" prefWidth="766.0" styleClass="background" stylesheets="@recursos/EstiloDamas.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controladores.TableroController">
    <top>
       <MenuBar fx:id="menu1" prefHeight="25.0" prefWidth="411.0" BorderPane.alignment="CENTER">
          <menus>
             <Menu fx:id="archivo1" mnemonicParsing="false" text="%menu.archivo">
                <items>
-                  <MenuItem fx:id="partida1" mnemonicParsing="false" text="%item.partidanueva" />
-                  <MenuItem fx:id="pausar1" mnemonicParsing="false" text="%item.pausar" />
                   <MenuItem fx:id="salir1" mnemonicParsing="false" onAction="#salir" text="%item.salir" />
                </items>
             </Menu>
@@ -76,6 +74,6 @@
          </children></AnchorPane>
    </center>
    <right>
-      <VBox fx:id="vpRaiz" prefHeight="485.0" prefWidth="184.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="temporizadorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>

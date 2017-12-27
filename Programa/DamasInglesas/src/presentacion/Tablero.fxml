@@ -24,8 +24,6 @@
          <menus>
             <Menu fx:id="archivo1" mnemonicParsing="false" text="%menu.archivo">
                <items>
-                  <MenuItem fx:id="partida1" mnemonicParsing="false" text="%item.partidanueva" />
-                  <MenuItem fx:id="pausar1" mnemonicParsing="false" text="%item.pausar" />
                   <MenuItem fx:id="salir1" mnemonicParsing="false" onAction="#salir" text="%item.salir" />
                </items>
             </Menu>
@@ -76,6 +74,6 @@
          </children></AnchorPane>
    </center>
    <right>
-      <VBox fx:id="vpRaiz" prefHeight="485.0" prefWidth="184.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="temporizadorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>
