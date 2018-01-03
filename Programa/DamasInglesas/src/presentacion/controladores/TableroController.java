@@ -20,7 +20,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
@@ -85,13 +88,25 @@ public class TableroController implements Initializable {
         for (int i = 0; i < 8; i++) {
           for (int j = 0; j < 8; j++) {
             Button casilla = new Button ("");
+            casilla.setShape(new Circle(31));
             casilla.setMaxSize(62, 62);
             casilla.setId("" + i + j);
-            if ((i + j) % 2 == 0){
-              casilla.setStyle("-fx-base: white;");
+            if ((i + j) % 2 == 0) {
+              gripTablero.setStyle("-fx-background-color: black;");
             } else {
-              casilla.setStyle("-fx-base: black;");
+              gripTablero.setStyle("-fx-background-color: white;");
             }
+            
+            if (j <= 2 && (i + j) % 2 != 0){
+              casilla.setStyle("-fx-base: red;");
+            } 
+            if (j >= 5 && (i + j) % 2 != 0) {
+              casilla.setStyle("-fx-base: white;");
+            }
+            if (casilla != null) {
+              casilla = casilla;
+            }
+            
             gripTablero.add(casilla, i, j);
             GridPane.setValignment(casilla, VPos.CENTER);
             GridPane.setHalignment(casilla, HPos.CENTER);
