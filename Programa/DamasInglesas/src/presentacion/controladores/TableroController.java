@@ -90,13 +90,17 @@ public class TableroController implements Initializable {
         for (int i = 0; i < 8; i++) {
           for (int j = 0; j < 8; j++) {
             Button fichas = new Button("");
-            fichas.setShape(new Circle(31));
-            fichas.setMaxSize(62,62);
+            Button casilla = new Button();
+            fichas.setShape(new Circle(25));
+            fichas.setMaxSize(50,50);
             fichas.setId("" + i + j);
+            gripTablero.setStyle("-fx-background-color: black;");
             if ((i + j) % 2 == 0) {
-              gripTablero.setStyle("-fx-background-color: black;");
+              casilla.setMaxSize(62,62);
+              gripTablero.add(casilla,i,j);
+              casilla.setStyle("-fx-base: white;");
             } else {
-              gripTablero.setStyle("-fx-background-color: white;");
+              casilla.setStyle("-fx-base: black;");
             }
             
             if (j <= 2 && (i + j) % 2 != 0){
