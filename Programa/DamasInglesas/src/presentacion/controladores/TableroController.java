@@ -20,10 +20,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
@@ -87,10 +89,10 @@ public class TableroController implements Initializable {
         conectarServidor();
         for (int i = 0; i < 8; i++) {
           for (int j = 0; j < 8; j++) {
-            Button casilla = new Button ("");
-            casilla.setShape(new Circle(31));
-            casilla.setMaxSize(62, 62);
-            casilla.setId("" + i + j);
+            Button fichas = new Button("");
+            fichas.setShape(new Circle(31));
+            fichas.setMaxSize(62,62);
+            fichas.setId("" + i + j);
             if ((i + j) % 2 == 0) {
               gripTablero.setStyle("-fx-background-color: black;");
             } else {
@@ -98,18 +100,18 @@ public class TableroController implements Initializable {
             }
             
             if (j <= 2 && (i + j) % 2 != 0){
-              casilla.setStyle("-fx-base: red;");
-            } 
-            if (j >= 5 && (i + j) % 2 != 0) {
-              casilla.setStyle("-fx-base: white;");
+              fichas.setStyle("-fx-base: red;");
+            } else {
+              if (j >= 5 && (i + j) % 2 != 0) {
+                fichas.setStyle("-fx-base: white;");
+              } else { 
+                fichas.setVisible(false);
+              }
             }
-            if (casilla != null) {
-              casilla = casilla;
-            }
-            
-            gripTablero.add(casilla, i, j);
-            GridPane.setValignment(casilla, VPos.CENTER);
-            GridPane.setHalignment(casilla, HPos.CENTER);
+            gripTablero.add(fichas, i, j);
+          
+            GridPane.setValignment(fichas, VPos.CENTER);
+            GridPane.setHalignment(fichas, HPos.CENTER);
           }
         }
       } catch (URISyntaxException ex) {
