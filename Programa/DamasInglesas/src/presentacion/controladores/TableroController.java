@@ -33,9 +33,6 @@ public class TableroController implements Initializable {
     ResourceBundle resource = ResourceBundle.getBundle("lenguajes.idioma");
 
     Socket socket;
-    @FXML private Label etiquetaTiempo;
-    @FXML private MenuItem pausar;
-    @FXML private MenuItem iniciar;
     @FXML private GridPane gripTablero;
 
     /**

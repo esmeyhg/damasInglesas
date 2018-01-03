@@ -1,7 +1,6 @@
 package presentacion.controladores;
 
 import io.socket.client.Socket;
-import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
