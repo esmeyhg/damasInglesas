@@ -24,6 +24,7 @@ public class IdiomaController implements Initializable {
   ResourceBundle resource = ResourceBundle.getBundle("lenguajes.idioma");
   private Parent root;
   private static final String VENTANAINICIOSESION = "/presentacion/InicioSesion.fxml";
+  private String tituloVentana = "InicioSesión";
   
 
   
@@ -34,6 +35,7 @@ public class IdiomaController implements Initializable {
   @FXML
   private void abrirLoginEspanol () throws IOException{
     stage = new Stage();
+    stage.setTitle(tituloVentana);
     resource = ResourceBundle.getBundle("lenguajes.idioma");
     root = FXMLLoader.load(getClass().getResource(VENTANAINICIOSESION), resource);
     stage.setScene(new Scene(root));
@@ -47,6 +49,7 @@ public class IdiomaController implements Initializable {
   @FXML
   private void abrirLoginEnglish () throws IOException{
     stage = new Stage();
+    stage.setTitle(tituloVentana);
     resource = ResourceBundle.getBundle("lenguajes.idioma_en_US");
     root = FXMLLoader.load(getClass().getResource(VENTANAINICIOSESION), resource);
     stage.setScene(new Scene(root));
@@ -60,6 +63,7 @@ public class IdiomaController implements Initializable {
   @FXML
   private void abrirLoginAleman () throws IOException{
     stage = new Stage();
+    stage.setTitle(tituloVentana);
     resource = ResourceBundle.getBundle("lenguajes.idioma_de_DE");
     root = FXMLLoader.load(getClass().getResource(VENTANAINICIOSESION), resource);
     stage.setScene(new Scene(root));
@@ -73,6 +77,7 @@ public class IdiomaController implements Initializable {
   @FXML
   private void abrirLoginFrances (ActionEvent e) throws IOException{
     stage = new Stage();
+    stage.setTitle(tituloVentana);
     resource = ResourceBundle.getBundle("lenguajes.idioma_fr_FR");
     root = FXMLLoader.load(getClass().getResource(VENTANAINICIOSESION), resource);
     stage.setScene(new Scene(root));

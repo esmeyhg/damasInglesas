@@ -23,7 +23,7 @@ public class DamasInglesas extends Application {
       ResourceBundle resource = ResourceBundle.getBundle("lenguajes.idioma");
       Pane main = FXMLLoader.load(getClass().getResource("/presentacion/Idioma.fxml"), resource);
       Scene scene = new Scene(main);
-      stage.setTitle("InicioSesion");
+      stage.setTitle("Idioma");
       stage.setScene(scene);
       stage.show();
     } catch (IOException ex) {

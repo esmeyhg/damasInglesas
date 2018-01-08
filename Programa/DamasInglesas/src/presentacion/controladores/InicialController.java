@@ -28,8 +28,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
- *
  * @author Esmeralda Yamileth Hernández González
  * @author Jahir Landa Valdivieso
  */

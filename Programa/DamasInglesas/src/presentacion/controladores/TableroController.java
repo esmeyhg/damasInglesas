@@ -3,7 +3,6 @@ package presentacion.controladores;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
-import java.awt.MenuItem;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -19,13 +18,8 @@ import javafx.geometry.VPos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 /**
@@ -46,7 +40,7 @@ public class TableroController implements Initializable {
      * @throws URISyntaxException 
      */
     public void conectarServidor () throws URISyntaxException{
-        //socket = IO.socket("http://192.168.43.239:7000");
+        //socket = IO.socket("http://192.168.43.239:7000"); 
         socket = IO.socket("http://localhost:7000");
         socket.on(Socket.EVENT_CONNECT, new Emitter.Listener(){
             @Override

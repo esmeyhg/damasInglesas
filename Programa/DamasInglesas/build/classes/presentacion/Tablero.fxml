@@ -71,82 +71,82 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <Label layoutX="51.0" layoutY="22.0" text="A">
+            <Label layoutX="51.0" layoutY="22.0" text="A" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="113.0" layoutY="22.0" text="B">
+            <Label layoutX="113.0" layoutY="22.0" text="B" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="171.0" layoutY="22.0" text="C">
+            <Label layoutX="171.0" layoutY="22.0" text="C" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="233.0" layoutY="22.0" text="D">
+            <Label layoutX="233.0" layoutY="22.0" text="D" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="293.0" layoutY="22.0" text="E">
+            <Label layoutX="293.0" layoutY="22.0" text="E" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="353.0" layoutY="22.0" text="F">
+            <Label layoutX="353.0" layoutY="22.0" text="F" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="414.0" layoutY="22.0" text="G">
+            <Label layoutX="414.0" layoutY="22.0" text="G" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="476.0" layoutY="22.0" text="H">
+            <Label layoutX="476.0" layoutY="22.0" text="H" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="65.0" prefHeight="17.0" prefWidth="0.0" text="8">
+            <Label layoutX="11.0" layoutY="65.0" prefHeight="17.0" prefWidth="0.0" text="8" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="123.0" prefHeight="17.0" prefWidth="0.0" text="7">
+            <Label layoutX="11.0" layoutY="123.0" prefHeight="17.0" prefWidth="0.0" text="7" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="181.0" prefHeight="17.0" prefWidth="0.0" text="6">
+            <Label layoutX="11.0" layoutY="181.0" prefHeight="17.0" prefWidth="0.0" text="6" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="236.0" prefHeight="17.0" prefWidth="0.0" text="5">
+            <Label layoutX="11.0" layoutY="236.0" prefHeight="17.0" prefWidth="0.0" text="5" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="291.0" prefHeight="17.0" prefWidth="0.0" text="4">
+            <Label layoutX="11.0" layoutY="291.0" prefHeight="17.0" prefWidth="0.0" text="4" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="346.0" prefHeight="17.0" prefWidth="0.0" text="3">
+            <Label layoutX="11.0" layoutY="346.0" prefHeight="17.0" prefWidth="0.0" text="3" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="401.0" prefHeight="17.0" prefWidth="0.0" text="2">
+            <Label layoutX="11.0" layoutY="401.0" prefHeight="17.0" prefWidth="0.0" text="2" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="456.0" prefHeight="17.0" prefWidth="0.0" text="1">
+            <Label layoutX="11.0" layoutY="456.0" prefHeight="17.0" prefWidth="0.0" text="1" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
