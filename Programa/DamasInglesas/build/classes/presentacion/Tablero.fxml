@@ -38,7 +38,7 @@
    <left>
       <AnchorPane prefHeight="529.0" prefWidth="81.0" BorderPane.alignment="CENTER">
          <children>
-            <Circle fill="RED" layoutX="43.0" layoutY="265.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="turnoC" fill="RED" layoutX="43.0" layoutY="265.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
             <Label layoutX="7.0" layoutY="211.0" text="%lbl.turno" textFill="WHITE">
                <font>
                   <Font name="Broadway" size="12.0" />

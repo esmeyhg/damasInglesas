@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +22,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -33,6 +36,7 @@ public class TableroController implements Initializable {
 
     Socket socket;
     @FXML private GridPane gripTablero;
+    @FXML private Circle turnoC;
 
     /**
      * Conecta con el servidor Server.js a traves del puerto
@@ -45,7 +49,7 @@ public class TableroController implements Initializable {
         socket.on(Socket.EVENT_CONNECT, new Emitter.Listener(){
             @Override
             public void call(Object... os){
-                System.out.println("Conectado con el servidor");
+                System.out.println("Que comience el juego");
             }
         });
         socket.connect();   
@@ -106,6 +110,7 @@ public class TableroController implements Initializable {
                 fichas.setVisible(false);
               }
             }
+
             gripTablero.add(fichas, i, j);
           
             GridPane.setValignment(fichas, VPos.CENTER);
@@ -116,4 +121,5 @@ public class TableroController implements Initializable {
         Logger.getLogger(TableroController.class.getName()).log(Level.SEVERE, null, ex);
       }  
     }
+    
 }
