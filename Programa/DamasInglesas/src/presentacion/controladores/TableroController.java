@@ -1,5 +1,6 @@
 package presentacion.controladores;
 
+import com.sun.prism.Texture;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
@@ -10,7 +11,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,6 +35,7 @@ public class TableroController implements Initializable {
     ResourceBundle resource = ResourceBundle.getBundle("lenguajes.idioma");
 
     Socket socket;
+    Button movimientoNuevo;
     @FXML private GridPane gripTablero;
     @FXML private Circle turnoC;
 
@@ -43,16 +44,46 @@ public class TableroController implements Initializable {
      * 7000 y la red 192.168.43.239
      * @throws URISyntaxException 
      */
-    public void conectarServidor () throws URISyntaxException{
-        //socket = IO.socket("http://192.168.43.239:7000"); 
+    public void conectarServidor () {
+      try {
+        //socket = IO.socket("http://192.168.43.239:7000");
         socket = IO.socket("http://localhost:7000");
-        socket.on(Socket.EVENT_CONNECT, new Emitter.Listener(){
-            @Override
-            public void call(Object... os){
-                System.out.println("Que comience el juego");
-            }
-        });
-        socket.connect();   
+        socket.connect();
+      } catch (URISyntaxException ex) {
+        Logger.getLogger(TableroController.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    }
+    
+    /**
+     * Método que permite realizar los movimientos de las fichas de lado
+     * del servidor para verse reflejados con el contrincante.
+     */
+    public void configurarServidor () {
+      socket.on(Socket.EVENT_CONNECT, (args)-> {
+        System.out.println("Inicia juego");
+      }).on("retador", new Emitter.Listener() {
+        @Override
+        public void call(Object... os) {
+          JSONObject data = (JSONObject) os[0];
+          try {
+            String id = data.getString("id");
+            System.out.println("Retador: " + id);
+          }catch (JSONException e) {
+            System.out.println("Error obteniendo id");
+          }
+        }
+      }).on("contrincante", new Emitter.Listener() {
+        @Override
+        public void call(Object... os) {
+          JSONObject data = (JSONObject) os[0];
+          try {
+            String id = data.getString("id");
+            System.out.println("Contrincante: " + id);
+          } catch (JSONException e) {
+            System.out.println("Error obteniendo id");
+          }
+        }
+      });
     }
 
     /**
@@ -83,42 +114,39 @@ public class TableroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       this.resource = rb;
-      try {
-        conectarServidor();
-        for (int i = 0; i < 8; i++) {
-          for (int j = 0; j < 8; j++) {
-            Button fichas = new Button("");
-            Button casilla = new Button();
-            fichas.setShape(new Circle(25));
-            fichas.setMaxSize(50,50);
-            fichas.setId("" + i + j);
-            gripTablero.setStyle("-fx-background-color: black;");
-            if ((i + j) % 2 == 0) {
-              casilla.setMaxSize(62,62);
-              gripTablero.add(casilla,i,j);
-              casilla.setStyle("-fx-base: white;");
-            } else {
-              casilla.setStyle("-fx-base: black;");
-            }
-            
-            if (j <= 2 && (i + j) % 2 != 0){
-              fichas.setStyle("-fx-base: red;");
-            } else {
-              if (j >= 5 && (i + j) % 2 != 0) {
-                fichas.setStyle("-fx-base: white;");
-              } else { 
-                fichas.setVisible(false);
-              }
-            }
-
-            gripTablero.add(fichas, i, j);
-          
-            GridPane.setValignment(fichas, VPos.CENTER);
-            GridPane.setHalignment(fichas, HPos.CENTER);
+      conectarServidor();
+      configurarServidor();
+      for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+          Button fichas = new Button("");
+          Button casilla = new Button();
+          fichas.setShape(new Circle(25));
+          fichas.setMaxSize(50,50);
+          fichas.setId("" + i + j);
+          gripTablero.setStyle("-fx-background-color: black;");
+          if ((i + j) % 2 == 0) {
+            casilla.setMaxSize(62,62);
+            gripTablero.add(casilla,i,j);
+            casilla.setStyle("-fx-base: white;");
+          } else {
+            casilla.setStyle("-fx-base: black;");
           }
+          
+          if (j <= 2 && (i + j) % 2 != 0){
+            fichas.setStyle("-fx-base: red;");
+          } else {
+            if (j >= 5 && (i + j) % 2 != 0) {
+              fichas.setStyle("-fx-base: white;");
+            } else {
+              fichas.setVisible(false);
+            }
+          }
+          
+          gripTablero.add(fichas, i, j);
+          
+          GridPane.setValignment(fichas, VPos.CENTER);
+          GridPane.setHalignment(fichas, HPos.CENTER);
         }
-      } catch (URISyntaxException ex) {
-        Logger.getLogger(TableroController.class.getName()).log(Level.SEVERE, null, ex);
       }  
     }
     
